@@ -13,7 +13,7 @@ const Detail: React.FC<RouteComponentProps<{}, {}, MovieProps>> = (props) => {
   return (
     <span>
       {
-        props.location.state.title
+        props.location.state?.title
       }
     </span>
   )
