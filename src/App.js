@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Food from "./Food";
-import { foodLike } from "./data/food";
-
+import { HashRouter, Route } from 'react-router-dom'
+import Home from "./routes/Home";
+import About from "./routes/About"
+import './css/App.css'
+import Navigation from './components/Navigation'
+import Detail from "./routes/Detail"
 
 function App() {
-  const [ isLoading, setLoading ] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 3000)
-  })
-
   return (
-    <div>
-      {
-        isLoading ? 'Loading...' : 'We are ready'
-      }
-    </div>
-  );
+    <HashRouter>
+      <Navigation/>
+      <Route path="/" exact component={Home}/>
+      <Route path="/about" component={About}/>
+      <Route path="/movie-detail" component={Detail}/>
+    </HashRouter>
+  )
 }
 
 export default App;
